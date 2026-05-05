@@ -5,7 +5,6 @@ import { SentrySection } from "./SentrySection"
 import { SlackSection } from "./SlackSection"
 import { AmplitudeSection } from "./AmplitudeSection"
 import { InsightsSection } from "./InsightsSection"
-import { SignOutButton } from "./SignOutButton"
 
 type DateRange = "this-week" | "last-week" | "last-4-weeks"
 
@@ -21,11 +20,7 @@ const DATE_RANGE_OPTIONS: { value: DateRange; label: string }[] = [
   { value: "last-4-weeks", label: "Last 4 weeks" },
 ]
 
-type Props = {
-  user?: { name?: string | null; email?: string | null } | null
-}
-
-export function Dashboard({ user }: Props) {
+export function Dashboard() {
   const [range, setRange] = useState<DateRange>("this-week")
 
   return (
@@ -56,13 +51,10 @@ export function Dashboard({ user }: Props) {
               </button>
             ))}
           </div>
-          <div className="flex items-center gap-4">
-            <div className="text-xs text-slate-600 text-right hidden sm:block">
-              Last updated: Apr 28, 2026 · 08:00 UTC
-              <br />
-              <span className="text-slate-700">Using dummy data</span>
-            </div>
-            <SignOutButton email={user?.email} name={user?.name} />
+          <div className="text-xs text-slate-600 sm:text-right">
+            Last updated: Apr 28, 2026 · 08:00 UTC
+            <br />
+            <span className="text-slate-700">Using dummy data</span>
           </div>
         </header>
 
@@ -83,7 +75,7 @@ export function Dashboard({ user }: Props) {
         </main>
 
         <footer className="mt-12 pt-6 border-t border-slate-800 text-xs text-slate-700 text-center">
-          HumanForest Ops Dashboard · {user?.email ?? "Local"}
+          HumanForest Ops Dashboard · Local only
         </footer>
       </div>
     </div>
