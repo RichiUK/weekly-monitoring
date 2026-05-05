@@ -176,10 +176,10 @@ export function SentrySection() {
   const badge = loading
     ? "Loading…"
     : isLive
-      ? "🟢 Live · forestfleet"
+      ? "🟢 Live · fleet"
       : `${stats.recurringIssues} recurring`
 
-  const badgeColor = loading ? "slate" : isLive ? "green" : "yellow"
+  const badgeColor: "slate" | "green" | "yellow" = loading ? "slate" : isLive ? "green" : "yellow"
 
   return (
     <SectionWrapper
