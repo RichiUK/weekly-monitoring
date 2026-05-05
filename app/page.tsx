@@ -1,5 +1,5 @@
-import CarreteraPage from "@/components/CarreteraPage";
+import { Dashboard } from "@/components/ops/Dashboard"
 
 export default function Home() {
-  return <CarreteraPage />;
+  return <Dashboard />
 }
